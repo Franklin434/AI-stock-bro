@@ -73,33 +73,27 @@ async function fetchStockData() {
 
 async function fetchReport(data) {
   console.log(data);
-  // try {
-  //   const geminiResponse = await gemini.models.generateContent({
-  //     model: "gemini-2.5-flash",
-  //     contents: data,
-  //     config: {
-  //       systemInstructions: "you are a financial guru, when passed a set stock data you are to give a reply of not more than 150 words recommending whether to buy, hold or sell your response should be in regular plain text no tables ",
-  //       temperature: 1
-  //     }
-  //   });
-  //   const output = geminiResponse.text;
-  //   console.log(output)
-  //   return output;
-  // } catch (error) {
-  //   loadingArea.style.backgroundColor = "red";
-  //   loadingArea.innerText = "There was an error generating the report.";
-  //   console.error("error: ", error);
-  // }
-  /**
-   * Challenge:
-   * 1. Use the OpenAI API to generate a report advising
-   * on whether to buy or sell the shares based on the data
-   * that comes in as a parameter.
-   *
-   * 🎁 See hint.md for help!
-   *
-   * 🏆 Bonus points: use a try catch to handle errors.
-   * **/
+  try {
+    const geminiResponse = await gemini.models.generateContent({
+      model: "gemini-3.1-flash-lite",
+      contents: data,
+      config: {
+        systemInstruction: `you are a zesty financial guru, when passed a set stock data you are to write a report not more than 150 words recommending whether to buy, hold or sell your response should be in regular plain text no tables, make use of funny obivious sexual inuendos and jokes. Use the example provided between ### to set the style and tone of your responses.
+        ###
+        Okay bro based on what i am looking at hear bro the market is trying to build up some crazy motion by consolidating after then is gonna fuck some niggas who goin sell by shooting up on some diddy shit. ion think that its gonnna slide like its been lubed up so hold hard ma nigga.
+        ###
+        `,
+        temperature: 1
+      }
+    });
+    const output = geminiResponse.text;
+    console.log(output)
+    return output;
+  } catch (error) {
+    loadingArea.style.backgroundColor = "red";
+    loadingArea.innerText = "There was an error generating the report.";
+    console.error("error: ", error);
+  }
 }
 
 function renderReport(output) {
