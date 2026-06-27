@@ -1,6 +1,6 @@
 import { GoogleGenAI } from "https://esm.sh/@google/genai";
 import { CONFIG } from "./config.js";
-import { dates } from "/utils/dates.js";
+import { dates } from "./utils/dates.js";
 
 const gemini = new GoogleGenAI ({
   apiKey: CONFIG.GEMINI_API_KEY
