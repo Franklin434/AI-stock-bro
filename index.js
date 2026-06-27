@@ -3,7 +3,7 @@ import { CONFIG } from "./config.js";
 import { dates } from "./utils/dates.js";
 
 const gemini = new GoogleGenAI ({
-  apiKey: CONFIG.GEMINI_API_KEY
+  apikey: CONFIG.GEMINI_API_KEY
 })
 
 const tickersArr = [];
