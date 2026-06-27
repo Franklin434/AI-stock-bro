@@ -92,7 +92,7 @@ async function fetchReport(data) {
   } catch (error) {
     loadingArea.style.backgroundColor = "red";
     loadingArea.innerText = "There was an error generating the report.";
-    console.error("error: ", error);
+    console.log("error: ", error);
   }
 }
 
